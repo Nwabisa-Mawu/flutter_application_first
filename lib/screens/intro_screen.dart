@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_first/shared/menu_drawer.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -10,6 +11,8 @@ class IntroScreen extends StatelessWidget {
     return Scaffold(
       // the appbar gives you the top navigation tab for mobile home page
       appBar: AppBar(title: Center(child: const Text('Globo Fitness'))),
+      // this is where you place the menu drawer
+      drawer: MenuDrawer(),
       // this is where you put the body content of the home page
       // this is the container for the whole body
       body: Container(
