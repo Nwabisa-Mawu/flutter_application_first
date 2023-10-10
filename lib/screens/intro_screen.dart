@@ -11,8 +11,21 @@ class IntroScreen extends StatelessWidget {
     return Scaffold(
       // the appbar gives you the top navigation tab for mobile home page
       appBar: AppBar(title: Center(child: const Text('Globo Fitness'))),
+
       // this is where you place the menu drawer
       drawer: MenuDrawer(),
+
+      // Bottom navbar
+      bottomNavigationBar: BottomNavigationBar(
+        
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home),
+          label: 'Home'
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.monitor_weight), label: 'BMI')
+        ],
+      ),
+
       // this is where you put the body content of the home page
       // this is the container for the whole body
       body: Container(

@@ -3,6 +3,7 @@
 
 // package that has widgets from material design
 import 'package:flutter/material.dart';
+import 'package:flutter_application_first/screens/BMI_screen.dart';
 // Always have to import when you want use pieces of code outside of the file you're working in.
 import 'package:flutter_application_first/screens/intro_screen.dart';
 
@@ -23,6 +24,14 @@ class GlobeApp extends StatelessWidget {
     // this is where we will place all the widgets to be seen
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blueGrey),
+      // add the routes parameter which is key-value paired object
+      // the keys are strings with the route names, the values are builders.
+      // these route names will be used in the bottom nav widget to set the page routes
+      routes: {
+        './': (context) => IntroScreen(),
+        '/bmi':(context) => BmiScreen(),
+      },
+        // initialRoute: '/', - not setting the initial route because not required as I have a homepage set up
         // this is code for the home page of the app
         home: IntroScreen());
   }
