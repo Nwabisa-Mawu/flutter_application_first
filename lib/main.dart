@@ -26,7 +26,7 @@ class GlobeApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       // add the routes parameter which is key-value paired object
       // the keys are strings with the route names, the values are builders.
-      // these route names will be used in the bottom nav widget to set the page routes
+      // these route names will be used in the bottom nav widget to set the page routes - this is the namedRoute method of navigation
       routes: {
         './': (context) => IntroScreen(),
         '/bmi':(context) => BmiScreen(),

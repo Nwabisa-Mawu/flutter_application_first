@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_first/shared/menu_bottom.dart';
 import 'package:flutter_application_first/shared/menu_drawer.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -16,15 +17,7 @@ class IntroScreen extends StatelessWidget {
       drawer: MenuDrawer(),
 
       // Bottom navbar
-      bottomNavigationBar: BottomNavigationBar(
-        
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),
-          label: 'Home'
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.monitor_weight), label: 'BMI')
-        ],
-      ),
+      bottomNavigationBar: MenuBottom(),
 
       // this is where you put the body content of the home page
       // this is the container for the whole body

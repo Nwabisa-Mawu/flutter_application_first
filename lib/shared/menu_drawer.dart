@@ -50,6 +50,7 @@ class MenuDrawer extends StatelessWidget {
           // the onTap parameter will contain the code for navigating to other pages
           title: Text(element, style: TextStyle(fontSize: 18)),
           // use a switch statement to tell it to go to which page when a certain menu item is clicked
+          // This is the unNamed routes method for navigation
           onTap: () {
             switch (element) {
               case 'Home':
@@ -59,7 +60,7 @@ class MenuDrawer extends StatelessWidget {
                 screen = BmiScreen();
                 break;
             }
-            
+
             // to remove the drawer on back navigation
             Navigator.of(context).pop();
             // To actually naavigate to another screen and use its push and pop methods
