@@ -3,7 +3,7 @@
 // place the page nav here because the change tab is in the drawer
 
 import 'package:flutter/material.dart';
-import '../screens/BMI_screen.dart';
+import '../screens/bmi_screen.dart';
 import '../screens/intro_screen.dart';
 
 class MenuDrawer extends StatelessWidget {

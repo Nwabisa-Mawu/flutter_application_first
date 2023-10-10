@@ -3,7 +3,7 @@
 
 // package that has widgets from material design
 import 'package:flutter/material.dart';
-import 'package:flutter_application_first/screens/BMI_screen.dart';
+import 'package:flutter_application_first/screens/bmi_screen.dart';
 // Always have to import when you want use pieces of code outside of the file you're working in.
 import 'package:flutter_application_first/screens/intro_screen.dart';
 
