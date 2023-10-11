@@ -22,6 +22,7 @@ class MenuBottom extends StatelessWidget {
             break;
         }
       },
+      // these are the navigation items found in the bottom nav
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.monitor_weight), label: 'BMI'),

@@ -63,7 +63,7 @@ class MenuDrawer extends StatelessWidget {
 
             // to remove the drawer on back navigation
             Navigator.of(context).pop();
-            // To actually naavigate to another screen and use its push and pop methods
+            // To actually navigate to another screen and use its push and pop methods
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => screen));
           }));
