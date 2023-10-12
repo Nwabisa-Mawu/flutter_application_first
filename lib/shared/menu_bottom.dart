@@ -7,6 +7,7 @@ class MenuBottom extends StatelessWidget {
     super.key,
   });
 
+// this override only applied to stateless widgets.
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(

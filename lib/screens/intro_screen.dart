@@ -11,7 +11,11 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // the appbar gives you the top navigation tab for mobile home page
-      appBar: AppBar(title: Center(child: const Text('Globo Fitness'))),
+      appBar: AppBar(title: Padding(
+        padding: const EdgeInsets.only(left: 40.0),
+        child: const Text('Globo Fitness',
+        style: TextStyle(fontSize: 30.0),),
+      )),
 
       // this is where you place the menu drawer
       drawer: MenuDrawer(),
