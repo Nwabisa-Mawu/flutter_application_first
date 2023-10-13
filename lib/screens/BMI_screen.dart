@@ -48,7 +48,8 @@ class _BmiScreenState extends State<BmiScreen> {
 
   @override
   Widget build(BuildContext context) {
-    heightMsg = 'Please insert your height in ${(isMetric) ? 'meters' : 'inches'}';
+    heightMsg =
+        'Please insert your height in ${(isMetric) ? 'meters' : 'inches'}';
     weightMsg = 'Please insert your weight in ${(isMetric) ? 'kg' : 'lbs'}';
     return Scaffold(
       appBar: AppBar(
@@ -58,38 +59,54 @@ class _BmiScreenState extends State<BmiScreen> {
       )),
       drawer: MenuDrawer(),
       bottomNavigationBar: MenuBottom(),
-      body: Column(children: [
-        // changing system toggle
-        ToggleButtons(children: [
+      body: SingleChildScrollView(
+        child: Column(children: [
+          // changing system toggle
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Metric', style: TextStyle(fontSize: fontSize)),
+            padding: const EdgeInsets.all(24.0),
+            child: ToggleButtons(children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Text('Metric', style: TextStyle(fontSize: fontSize)),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Text('Imperial', style: TextStyle(fontSize: fontSize)),
+              ),
+            ], isSelected: isSelected, onPressed: toggleMeasure),
+          ),
+          // this is the textfield for the number input.
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: TextField(
+              controller: txtHeight,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(hintText: heightMsg),
+            ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Imperial', style: TextStyle(fontSize: fontSize)),
+            padding: const EdgeInsets.all(24.0),
+            child: TextField(
+              controller: txtWeight,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(hintText: weightMsg),
+            ),
           ),
-        ], isSelected: isSelected, onPressed: toggleMeasure),
-        // this is the textfield for the number input.
-        TextField(controller: txtHeight, keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          hintText: heightMsg
-        ),
-        ),
-        TextField(controller: txtWeight, keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          hintText: weightMsg
-        ),
-        ),
-        ElevatedButton(onPressed: () {}, child: Text('Calculate BMI',
-        style: TextStyle(fontSize: fontSize),)
-        ),
-        Text(result,
-        style: TextStyle(
-          fontSize: fontSize
-        ),
-        ),
-      ]),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: ElevatedButton(
+                onPressed: findBMI,
+                child: Text(
+                  'Calculate BMI',
+                  style: TextStyle(fontSize: fontSize),
+                )),
+          ),
+          Text(
+            result,
+            style: TextStyle(fontSize: fontSize),
+          ),
+        ]),
+      ),
     );
   }
 
@@ -103,6 +120,24 @@ class _BmiScreenState extends State<BmiScreen> {
     }
     setState(() {
       isSelected = [isMetric, isImperial];
+    });
+  }
+
+  // method for the calculation of the BMI that will return void
+  void findBMI() {
+    double bmi = 0;
+    double height = double.tryParse(txtHeight.text) ?? 0;
+    double weight = double.tryParse(txtWeight.text) ?? 0;
+
+    if (isMetric) {
+      bmi = weight / (height * height);
+    } else {
+      bmi = weight * 703 / (height * height);
+    }
+
+    // show the result in the UI
+    setState(() {
+      result = 'Your BMI is ${bmi.toStringAsFixed(2)}';
     });
   }
 }
