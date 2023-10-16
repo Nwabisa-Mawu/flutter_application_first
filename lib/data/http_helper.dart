@@ -1,4 +1,6 @@
 import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'weather.dart';
 
 // this is a plain class and not a widget
 class HttpHelper {
@@ -12,11 +14,14 @@ class HttpHelper {
 
   // method to make the call to the api
   // the Future class is used in DART to perform asynchronous tasks
-  Future<String> getWeather(String location) async {
+  Future<Weather> getWeather(String location) async {
     Map<String, dynamic> parameters = {'q': location, 'appId': apiKey};
     Uri uri = Uri.https(authority, path, parameters);
     // the asynchronous call
     http.Response result = await http.get(uri);
-    return result.body;
+    Map<String, dynamic> data = json.decode(result.body);
+    Weather weather = Weather.fromJson(data);
+
+    return weather;
   }
 }

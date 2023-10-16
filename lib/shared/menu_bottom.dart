@@ -21,6 +21,9 @@ class MenuBottom extends StatelessWidget {
           case 1:
             Navigator.pushNamed(context, '/bmi');
             break;
+            case 2:
+            Navigator.pushNamed(context, '/train');
+            break;
         }
       },
       // these are the navigation items found in the bottom nav

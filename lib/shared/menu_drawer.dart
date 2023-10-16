@@ -3,6 +3,7 @@
 // place the page nav here because the change tab is in the drawer
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_first/screens/sessions_screen.dart';
 import '../screens/bmi_screen.dart';
 import '../screens/intro_screen.dart';
 import '../screens/weather_screen.dart';
@@ -62,6 +63,10 @@ class MenuDrawer extends StatelessWidget {
                 break;
               case 'Weather':
                 screen = WeatherScreen();
+                break;
+                case 'Training':
+                screen = SessionScreen();
+                break;
             }
 
             // to remove the drawer on back navigation
