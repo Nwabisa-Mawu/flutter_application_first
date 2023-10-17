@@ -31,4 +31,11 @@ class SPHelper {
     });
     return sessions;
   }
+
+  // method that will create a key counter to allow for the display of more than one session on the UI
+  Future setCounter() async {
+    int counter = prefs.getInt('counter') ?? 0;
+    counter++;
+    await prefs.setInt('counter', counter);
+  }
 }
